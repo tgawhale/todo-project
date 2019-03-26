@@ -1,0 +1,33 @@
+<div class="container mt-3">
+  <div class="row justify-content-md-center">
+    <div class="col-s8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <!-----------------FORM FOR ADDING TODO----------------->
+          <form (ngSubmit)="addtask()" #addTaskForm=ngForm>
+            <h4 class="text-center mb-3 text-success">Add Task</h4>
+            
+            <div class="form-group">
+              <input [(ngModel)]="todo.taskName" #name=ngModel placeholder="Enter a Task" type="text"
+                class="form-control"
+                [ngClass]="{'input-error': name.invalid && (name.dirty || name.touched),'input-valid':name.valid}"
+                name="name" required>
+                <!-----If inputs are invalid or blank------->
+              <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">Enter Valid Task Name</div>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-success btn-block" [disabled]="addTaskForm.invalid">Add</button>
+            </div>
+          </form>
+
+          <button class="btn btn-success btn-block" (click)="addTaskForm.reset()">Reset</button>
+          <button class="btn btn-info btn-block" 
+          [routerLink]="['/todo']" 
+          routerLinkActive="router-link-active">GoBack</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

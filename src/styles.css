@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background: #ededee;
+}
+
+.error{
+    background: #f2dede;
+    color: #a94442;
+    text-align: center;
+    padding: 6px 0px;
+    border: 1px solid #ebccd1;
+    width: 100%;
+}
+
+.input-error{
+    border: 1px solid #f44336;
+    box-shadow: 0 1px 0 0 #f44336;
+}
+
+.input-valid
+{
+    border: 2px solid teal;
+}

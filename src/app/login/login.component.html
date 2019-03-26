@@ -1,0 +1,41 @@
+<div class="container mt-3">
+  <div class="row justify-content-md-center">
+    <div class="col-s4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <!-----------------FORM FOR LOGIN----------------->
+          <form (ngSubmit)="login()" #loginForm=ngForm>
+            <h4 class="text-center mb-3 text-success">Login</h4>
+
+            <div class="form-group">
+              <input [(ngModel)]="userName" #name=ngModel placeholder="Enter a Email" type="email" class="form-control"
+                [ngClass]="{'input-error': name.invalid && (name.dirty || name.touched),'input-valid':name.valid}"
+                name="email" required>
+              
+              <!----------Show Error is data is empty or invalid-->
+              <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">Enter Valid Email</div>
+            </div>
+
+            <div class="form-group">
+              <input [(ngModel)]="password" #pass=ngModel placeholder="Enter password" type="password"
+                class="form-control"
+                [ngClass]="{'input-error': pass.invalid && (pass.dirty || pass.touched),'input-valid':pass.valid}"
+                name="password" required>
+
+              <div class="error" *ngIf="pass.invalid && (pass.dirty || pass.touched)">Enter Valid Password</div>
+            </div>
+
+
+
+            <div class="form-group">
+              <!---------------------SUBMIT BUTTON-------------------------->
+              <button class="btn btn-success btn-block" [disabled]="loginForm.invalid">Login</button>
+            </div>
+          </form>
+          <button class="btn btn-info btn-block" (click)="loginForm.reset()">Cancel</button>
+          <button class="btn btn-success btn-block" [routerLink]="['login']">Go To Home</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

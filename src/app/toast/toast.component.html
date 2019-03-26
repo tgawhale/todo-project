@@ -1,0 +1,4 @@
+<!-----------Will show the Toast for 2 seconds---------------->
+<div>
+  <div id="toast" *ngFor="let  item of toastService.messageArr" [class]="item.className">{{item.message}}</div>
+</div>

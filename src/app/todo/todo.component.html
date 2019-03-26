@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-12">
+      <div class="card shadow-sm">
+          <div class="card-body">
+              <!---------------------DISPLAY TODO------------------>
+              <h4 class="text-center mb-3 text-primary">TODOS
+              </h4>
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>#</th>
+                          <th>Task Name</th>
+                          <th>Status</th>
+                          <th>Edit</th>
+                          <th>Delete</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+
+                      <!----------------USING *ngFor------------------------>
+                      <tr *ngFor="let todo of todoList;let i = index">
+                          <td>{{i+1}}</td>
+                          <td>{{todo.taskName}}</td>
+                          <td>{{todo.status}}</td>
+                          <td><button class="btn btn-outline-warning" (click)="edit(i)">Edit</button></td>
+                          <td><button class="btn btn-outline-danger" (click)="delete(i)">Delete</button></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+              <!---------------Add task Button---------------------->
+              <button class="btn btn-info" [routerLink]="['/create']">Add task</button>
+          </div>
+      </div>
+  </div>
+</div>
